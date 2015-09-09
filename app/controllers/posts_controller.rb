@@ -1,6 +1,8 @@
 class PostsController < ApplicationController
+
   def index
     @posts = Post.all
+    authorize @posts
   end
 
   def show
@@ -9,10 +11,13 @@ class PostsController < ApplicationController
 
   def new
     @post= Post.new
+    authorize @post
   end
 
   def create
    @post = Post.new(params.require(:post).permit(:title, :body))
+   @post.user = current_user
+   authorize @post
      if @post.save
        flash[:notice] = "Post was saved."
        redirect_to @post
