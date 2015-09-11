@@ -1,10 +1,15 @@
 Rails.application.routes.draw do
+
+  devise_for :users
   get 'question/index' => 'question#index'
   resources :question
 
   resources :advertisements
   get 'posts/new' => 'posts#new'
-  resources :posts
+  
+  resources :topics do
+     resources :posts#, except: [:index]
+     end
 
   get 'index/about'
 
