@@ -7,7 +7,7 @@ class ApplicationPolicy
   end
 
   def index?
-    true
+    false
   end
 
   def show?
@@ -24,7 +24,6 @@ class ApplicationPolicy
 
   def update?
     user.present? && (record.user == user || user.admin?)
-
   end
 
   def edit?

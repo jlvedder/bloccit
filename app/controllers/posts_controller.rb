@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+
   def index
     @posts = Post.all
     authorize @posts
@@ -22,7 +23,7 @@ class PostsController < ApplicationController
      @post.user = current_user
      @post.topic = @topic
      authorize @post
-     
+
      if @post.save
        flash[:notice] = "Post was saved."
        redirect_to [@topic, @post]
