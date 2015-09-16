@@ -8,8 +8,8 @@ Rails.application.routes.draw do
   get 'posts/new' => 'posts#new'
   
   resources :topics do
-     resources :posts#, except: [:index]
-     end
+    resources :posts#, except: [:index]
+  end
 
   get 'index/about'
 
