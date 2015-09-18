@@ -3,3 +3,11 @@ SENDGRID_USERNAME: app40238146@heroku.com
 MY_SUPER_SECRET_VARIABLE: secret123456 
 development:
  secret_key_base: <%= ENV["SECRET_KEY_BASE"] %>
+
+
+AWS_ACCESS_KEY_ID: AKIAIUCWGMGQYNSPXPEQ
+AWS_SECRET_ACCESS_KEY: 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
+development:
+ AWS_BUCKET: jonathanbloccit
+production:
+ AWS_BUCKET: jonathanbloccitproduction
