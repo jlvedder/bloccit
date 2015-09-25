@@ -1,5 +1,0 @@
-SENDGRID_PASSWORD: jrqt69em0977
-SENDGRID_USERNAME: app40238146@heroku.com
-MY_SUPER_SECRET_VARIABLE: secret123456 
-development:
- secret_key_base: <%= ENV["SECRET_KEY_BASE"] %>
