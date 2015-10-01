@@ -1,15 +1,19 @@
 Rails.application.routes.draw do
 
+  get 'comments/create'
+
   devise_for :users
   resources :users, only: [:update]
   get 'question/index' => 'question#index'
   resources :question
-
+  
   resources :advertisements
   get 'posts/new' => 'posts#new'
   
   resources :topics do
-    resources :posts#, except: [:index]
+    resources :posts do#, except: [:index]
+      resources :comments, only: [:create]
+    end
   end
 
   get 'index/about'
