@@ -4,12 +4,12 @@ class TopicsController < ApplicationController
     authorize @topics
   end
 
-  def new
+  def new # GET /topics/new - views/topics/new.html.erb 
     @topic = Topic.new
     authorize @topic
   end
 
-  def show
+  def show # GET /topics/:id - views/topics/show.html.erb
     @topic = Topic.find(params[:id])
     @posts = @topic.posts.paginate(page: params[:page], per_page: 10)
     authorize @topic
@@ -20,7 +20,7 @@ class TopicsController < ApplicationController
     authorize @topic
   end
 
-  def create
+  def create # POST /topics - NO VIEW
     @topic = Topic.new(topic_params)
     authorize @topic
      if @topic.save
@@ -32,6 +32,9 @@ class TopicsController < ApplicationController
   end
  
   def update
+    # @topic.name = params[:topic][:name]
+    # @topic.description = params[:topic][:description]
+    # @topic.public = params[:topic][:public]
     @topic = Topic.find(params[:id])
     authorize @topic
     if @topic.update_attributes(topic_params)

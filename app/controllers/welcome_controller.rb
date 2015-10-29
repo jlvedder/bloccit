@@ -5,7 +5,7 @@ class WelcomeController < ApplicationController
   def about
   end
 
-  def contact
+  def contact #views/welcome/contact.html.erb
   end
   
 end
